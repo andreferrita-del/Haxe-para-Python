@@ -9,64 +9,52 @@
 <body>
     <div class="container">
         <div class="header">
-            <img src="images/haxe-logo.png" alt="Haxe" class="logo-haxe" title="Haxe" onerror="this.style.display='none'">
-            <span class="arrow">➡️</span>
-            <img src="images/python-logo.png" alt="Python" class="logo-python" title="Python" onerror="this.style.display='none'">
+            <div class="logos">
+                <img src="https://haxe.org/img/haxe-logo.svg" 
+                     alt="Haxe" class="logo-img" 
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <span class="logo-fallback fallback-hx" style="display:none;">Hx</span>
+                
+                <span class="arrow">➡️</span>
+                
+                <img src="https://www.python.org/static/img/python-logo.png" 
+                     alt="Python" class="logo-img" 
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <span class="logo-fallback fallback-py" style="display:none;">Py</span>
+            </div>
             <h1>Conversor Haxe → Python</h1>
             <p>Converta código Haxe para Python automaticamente</p>
         </div>
-
-        <div class="editor-container">
-            <!-- Painel Haxe -->
-            <div class="editor-panel">
+        <div class="panels">
+            <div class="panel">
                 <div class="panel-header">
-                    <div class="panel-title">
-                        <img src="images/haxe-icon.png" alt="" class="panel-icon-img" onerror="this.style.display='none'">
-                        <span class="panel-icon haxe-icon">.Hx</span>
-                        <span>Código Haxe</span>
-                    </div>
-                    <div class="btn-group">
-                        <button class="paste-btn" id="pasteBtn">📋 Colar</button>
-                        <button class="selectall-btn" id="selectHaxeBtn">✅ Selecionar</button>
-                        <button class="example-btn" id="exampleBtn">📝 Exemplo</button>
-                        <button class="clear-btn" id="clearHaxeBtn">🗑️ Limpar</button>
+                    <span class="panel-title"><span class="icon icon-hx">Hx</span> Haxe</span>
+                    <div class="btns">
+                        <button class="btn-paste" id="pasteBtn">📋 Colar</button>
+                        <button class="btn-select" id="selectHaxeBtn">✅ Selecionar</button>
+                        <button class="btn-example" id="exampleBtn">📝 Exemplo</button>
+                        <button class="btn-clear" id="clearHaxeBtn">🗑️</button>
                     </div>
                 </div>
                 <textarea id="haxeCode" placeholder="Cole seu código Haxe aqui..."></textarea>
                 <div class="char-count"><span id="haxeCharCount">0</span> caracteres</div>
             </div>
-
-            <!-- Painel Python -->
-            <div class="editor-panel">
+            <div class="panel">
                 <div class="panel-header">
-                    <div class="panel-title">
-                        <img src="images/python-icon.png" alt="" class="panel-icon-img" onerror="this.style.display='none'">
-                        <span class="panel-icon python-icon">.Py</span>
-                        <span>Código Python</span>
+                    <span class="panel-title"><span class="icon icon-py">Py</span> Python</span>
+                    <div class="btns">
+                        <button class="btn-convert" id="convertBtn">⚡ Converter</button>
+                        <button class="btn-select" id="selectPythonBtn">✅ Selecionar</button>
+                        <button class="btn-copy" id="copyBtn">📋 Copiar</button>
+                        <button class="btn-clear" id="clearPythonBtn">🗑️</button>
                     </div>
-                    <div class="btn-group"> 
-                    <button class="convert-btn" id="convertBtn">⚡ Converter</button>
-                        <!-- <button class="selectall-btn" id="selectPythonBtn">✅ Selecionar</button> -->
-                    <button class="copy-btn" id="copyBtn">📋 Copiar</button>
-                    <button class="clear-btn" id="clearPythonBtn">🗑️ Limpar</button>
-                  </div>
                 </div>
                 <textarea id="pythonCode" placeholder="O código Python aparecerá aqui..." readonly></textarea>
                 <div class="char-count"><span id="pythonCharCount">0</span> caracteres</div>
             </div>
         </div>
-
-        <div class="info-bar">
-            <div class="status">
-                <span class="status-dot"></span>
-                <span id="statusText">Conversor pronto</span>
-            </div>
-            <div class="conversion-stats">
-                <span id="conversionTime"></span>
-            </div>
-        </div>
+        <div class="info"><span id="statusText">Conversor pronto</span><span id="conversionTime"></span></div>
     </div>
-
     <div class="toast" id="toast"></div>
 
     <script src="scripts/converter.js"></script>
